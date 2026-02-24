@@ -5,75 +5,64 @@ import { Calendar, Info, ShieldCheck, Zap } from 'lucide-react';
 
 const features = [
     {
-        title: 'ACADEMIC AGENDA',
-        desc: 'Precision control over every academic milestone.',
-        icon: <Calendar size={32} />,
-        color: 'bg-orange-primary'
+        title: 'Academic Agenda',
+        desc: 'Structured planning for academic excellence.',
+        icon: <Calendar size={28} />,
+        color: 'bg-navy-muted/50'
     },
     {
-        title: 'INFO CENTER',
-        desc: 'Instant synchronization for school-wide updates.',
-        icon: <Info size={32} />,
-        color: 'bg-navy'
+        title: 'Information Hub',
+        desc: 'Unified communication for the entire school.',
+        icon: <Info size={28} />,
+        color: 'bg-orange-soft/20'
     },
     {
-        title: 'SECURE CBT',
-        desc: 'Uncompromising integrity for digital assessments.',
-        icon: <ShieldCheck size={32} />,
-        color: 'bg-orange-primary'
+        title: 'Secure Testing',
+        desc: 'Reliable CBT environments with high integrity.',
+        icon: <ShieldCheck size={28} />,
+        color: 'bg-navy-muted/50'
     },
     {
-        title: 'INSTANT SYNC',
-        desc: 'Lag-free performance across all device eco-systems.',
-        icon: <Zap size={32} />,
-        color: 'bg-navy'
+        title: 'Modern Core',
+        desc: 'Blazing fast performance on every device.',
+        icon: <Zap size={28} />,
+        color: 'bg-orange-soft/20'
     },
 ];
 
 const Features = () => {
     return (
-        <section className="relative py-32 overflow-hidden bg-[#000814]">
-            {/* Even Section: Orange Gaussian blobs */}
-            <div className="gaussian-blur w-[700px] h-[700px] bg-orange-primary/20 top-[-20%] right-[-10%] animate-pulse-slow opacity-30"></div>
-            <div className="gaussian-blur w-[400px] h-[400px] bg-orange-dark/10 bottom-[10%] left-[5%] animate-float"></div>
+        <section className="relative py-32 bg-bg-dark overflow-hidden">
+            {/* Background Soft Blurs */}
+            <div className="gaussian-blur-soft w-[600px] h-[600px] bg-orange-soft top-[-10%] right-[-10%] opacity-5"></div>
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
-                    <div className="max-w-2xl">
-                        <h2 className="text-4xl md:text-6xl font-black text-white leading-none mb-6 tracking-tighter">
-                            CRAFTED FOR <br />
-                            <span className="text-orange-primary">EXCELLENCE.</span>
-                        </h2>
-                        <p className="text-lg text-white/40 font-light">
-                            We don't just build features; we engineer experiences that define the new standard in educational technology.
-                        </p>
-                    </div>
-                    <div className="hidden md:block w-32 h-1 bg-white/10 rounded-full mb-4"></div>
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                        Everything you need. <br />
+                        <span className="text-orange-soft font-light italic">Nothing you don't.</span>
+                    </h2>
+                    <p className="text-white/40 text-lg">
+                        A curated set of features designed to streamline education management without the clutter.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {features.map((f, i) => (
                         <motion.div
                             key={i}
-                            whileHover={{ y: -10 }}
-                            className="group glass-v2 border-white/5 rounded-3xl p-10 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden relative"
+                            whileHover={{ y: -8 }}
+                            className="glass-soft border-white/5 rounded-[2.5rem] p-10 hover:border-orange-soft/30 transition-all duration-500"
                         >
-                            <div className="absolute top-0 right-0 w-24 h-24 bg-orange-primary/5 blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
-
-                            <div className={`w-16 h-16 ${f.color} rounded-2xl flex items-center justify-center text-white mb-8 group-hover:rotate-12 transition-transform shadow-2xl`}>
+                            <div className={`w-14 h-14 ${f.color} rounded-2xl flex items-center justify-center text-orange-soft mb-8`}>
                                 {f.icon}
                             </div>
-
-                            <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-orange-primary transition-colors">
+                            <h3 className="text-xl font-bold text-white mb-4 tracking-tight">
                                 {f.title}
                             </h3>
-                            <p className="text-white/40 leading-relaxed group-hover:text-white/70 transition-colors">
+                            <p className="text-white/40 leading-relaxed font-medium text-sm">
                                 {f.desc}
                             </p>
-
-                            <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white/20 group-hover:text-orange-primary transition-colors">
-                                EXPLORE <div className="w-8 h-px bg-white/10 group-hover:bg-orange-primary transition-all"></div>
-                            </div>
                         </motion.div>
                     ))}
                 </div>
