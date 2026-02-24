@@ -1,57 +1,80 @@
 "use client";
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Calendar, Info, ShieldCheck, Zap } from 'lucide-react';
 
 const features = [
     {
-        title: 'Manajemen Agenda',
-        description: 'Atur jadwal akademik dan kegiatan sekolah secara terpusat dan teroganisir.',
-        icon: <Calendar className="text-orange-primary" size={28} />,
+        title: 'ACADEMIC AGENDA',
+        desc: 'Precision control over every academic milestone.',
+        icon: <Calendar size={32} />,
+        color: 'bg-orange-primary'
     },
     {
-        title: 'Pusat Informasi',
-        description: 'Berikan pengumuman dan berita terbaru ke seluruh komunitas sekolah secara instan.',
-        icon: <Info className="text-orange-primary" size={28} />,
+        title: 'INFO CENTER',
+        desc: 'Instant synchronization for school-wide updates.',
+        icon: <Info size={32} />,
+        color: 'bg-navy'
     },
     {
-        title: 'Sistem CBT Aman',
-        description: 'Pelaksanaan ujian online dengan tingkat keamanan tinggi dan antarmuka yang nyaman.',
-        icon: <ShieldCheck className="text-orange-primary" size={28} />,
+        title: 'SECURE CBT',
+        desc: 'Uncompromising integrity for digital assessments.',
+        icon: <ShieldCheck size={32} />,
+        color: 'bg-orange-primary'
     },
     {
-        title: 'Akses Cepat',
-        description: 'Performa aplikasi yang ringan dan responsif untuk semua perangkat.',
-        icon: <Zap className="text-orange-primary" size={28} />,
+        title: 'INSTANT SYNC',
+        desc: 'Lag-free performance across all device eco-systems.',
+        icon: <Zap size={32} />,
+        color: 'bg-navy'
     },
 ];
 
 const Features = () => {
     return (
-        <section className="py-24 bg-navy-dark/30">
-            <div className="container mx-auto px-6">
-                <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                        Fitur Utama <span className="text-orange-primary">Unggulan</span>
-                    </h2>
-                    <p className="text-white/60 text-lg">
-                        Kami menyediakan alat yang komprehensif untuk mendukung ekosistem pendidikan digital Anda.
-                    </p>
+        <section className="relative py-32 overflow-hidden bg-[#000814]">
+            {/* Even Section: Orange Gaussian blobs */}
+            <div className="gaussian-blur w-[700px] h-[700px] bg-orange-primary/20 top-[-20%] right-[-10%] animate-pulse-slow opacity-30"></div>
+            <div className="gaussian-blur w-[400px] h-[400px] bg-orange-dark/10 bottom-[10%] left-[5%] animate-float"></div>
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+                    <div className="max-w-2xl">
+                        <h2 className="text-4xl md:text-6xl font-black text-white leading-none mb-6 tracking-tighter">
+                            CRAFTED FOR <br />
+                            <span className="text-orange-primary">EXCELLENCE.</span>
+                        </h2>
+                        <p className="text-lg text-white/40 font-light">
+                            We don't just build features; we engineer experiences that define the new standard in educational technology.
+                        </p>
+                    </div>
+                    <div className="hidden md:block w-32 h-1 bg-white/10 rounded-full mb-4"></div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {features.map((feature, index) => (
-                        <div
-                            key={index}
-                            className="glass-effect p-8 rounded-2xl hover:border-orange-primary/40 transition-all duration-300 group"
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    {features.map((f, i) => (
+                        <motion.div
+                            key={i}
+                            whileHover={{ y: -10 }}
+                            className="group glass-v2 border-white/5 rounded-3xl p-10 hover:bg-white/[0.05] transition-all duration-500 overflow-hidden relative"
                         >
-                            <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                                {feature.icon}
+                            <div className="absolute top-0 right-0 w-24 h-24 bg-orange-primary/5 blur-2xl group-hover:bg-orange-primary/20 transition-all"></div>
+
+                            <div className={`w-16 h-16 ${f.color} rounded-2xl flex items-center justify-center text-white mb-8 group-hover:rotate-12 transition-transform shadow-2xl`}>
+                                {f.icon}
                             </div>
-                            <h3 className="text-xl font-bold text-white mb-4">{feature.title}</h3>
-                            <p className="text-white/60 leading-relaxed">
-                                {feature.description}
+
+                            <h3 className="text-xl font-black text-white mb-4 tracking-tight group-hover:text-orange-primary transition-colors">
+                                {f.title}
+                            </h3>
+                            <p className="text-white/40 leading-relaxed group-hover:text-white/70 transition-colors">
+                                {f.desc}
                             </p>
-                        </div>
+
+                            <div className="mt-8 flex items-center gap-2 text-xs font-black uppercase tracking-widest text-white/20 group-hover:text-orange-primary transition-colors">
+                                EXPLORE <div className="w-8 h-px bg-white/10 group-hover:bg-orange-primary transition-all"></div>
+                            </div>
+                        </motion.div>
                     ))}
                 </div>
             </div>
